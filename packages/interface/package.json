@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@eddeee888/gcg-typescript-resolver-files": "^0.7.3",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-graphql-request": "^6.2.0",
+    "@graphql-codegen/typescript-operations": "^4.2.0",
+    "@parcel/watcher": "^2.4.1",
+    "cpx2": "^7.0.1"
+  },
+  "scripts": {
+    "copy": "cpx ./src/schema.graphql ../backend/src -w",
+    "codegen": "graphql-codegen --watch"
+  }
+}
