@@ -1,0 +1,7 @@
+{
+  "name": "user-management",
+  "private": true,
+  "scripts": {
+    "dev": "cd ./packages/frontend && bun run dev"
+  }
+}
