@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  um_database:
+    container_name: um_database
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    env_file:
+      - ./.env
+    restart: always
+    volumes:
+      - ./database/data:/var/lib/mysql
+      - ./database/config/my.cnf:/etc/mysql/conf.d/my.cnf
