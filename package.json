@@ -1,6 +1,5 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "user-management",
   "private": true,
   "scripts": {
     "dev": "cd ./packages/frontend && bun run dev"
