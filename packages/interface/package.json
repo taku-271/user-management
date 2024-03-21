@@ -6,7 +6,8 @@
     "@graphql-codegen/typescript-graphql-request": "^6.2.0",
     "@graphql-codegen/typescript-operations": "^4.2.0",
     "@parcel/watcher": "^2.4.1",
-    "cpx2": "^7.0.1"
+    "cpx2": "^7.0.1",
+    "graphql-scalars": "^1.23.0"
   },
   "scripts": {
     "copy": "cpx ./src/schema.graphql ../backend/src -w",

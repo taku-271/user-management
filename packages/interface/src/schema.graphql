@@ -1,4 +1,4 @@
-scalar Date
+scalar DateTime
 
 type User {
   id: Int!
@@ -6,10 +6,11 @@ type User {
   email: String!
   password: String!
   isAdmin: Boolean!
-  createdAt: Date!
-  updatedAt: Date!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Query {
   user(id: Int!): User
+  getUserByEmail(email: String!): User
 }
