@@ -3,7 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 
 const Index = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <>

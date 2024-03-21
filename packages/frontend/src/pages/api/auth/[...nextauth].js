@@ -24,15 +24,14 @@ export default NextAuth({
       async authorize(credentials) {
         const { email, password } = credentials;
 
-        const user = await getSdk(await getGraphqlClient()).getUserByEmail({
-          email,
-        });
+        const user = (
+          await getSdk(await getGraphqlClient()).getUserByEmail({
+            email,
+          })
+        ).getUserByEmail;
 
-        if (
-          user.getUserByEmail &&
-          (await bcrypt.compare(password, user.getUserByEmail.password))
-        ) {
-          return user.getUserByEmail;
+        if (user && (await bcrypt.compare(password, user.password))) {
+          return user;
         } else {
           return null;
         }

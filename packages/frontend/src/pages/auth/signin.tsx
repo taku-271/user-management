@@ -1,6 +1,6 @@
 import { Box, Text, Button, FormControl, Input } from "@yamada-ui/react";
 import { GetServerSideProps } from "next";
-import { getCsrfToken } from "next-auth/react";
+import { getCsrfToken, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 type SignInProps = {
