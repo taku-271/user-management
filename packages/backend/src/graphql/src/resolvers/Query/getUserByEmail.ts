@@ -1,16 +1,16 @@
-import type { User } from "@prisma/client";
 import type { QueryResolvers } from "./../../../types.generated";
-export const user: NonNullable<QueryResolvers['user']> = async (
-  _parent,
-  _arg,
-  _ctx
-) => {
+import type { User } from "@prisma/client";
+export const getUserByEmail: NonNullable<QueryResolvers['getUserByEmail']> = async (_parent, _arg, _ctx) => {
+  console.log("RUN");
+  /* Implement Query.getUserByEmail resolver logic here */
   const user = await _ctx.prisma.user.findUnique({
-    where: { id: _arg.id },
+    where: {
+      email: _arg.email,
+    },
   });
 
   if (!user) {
-    throw new Error("User not found");
+    return null;
   }
 
   return convertUser(user);
