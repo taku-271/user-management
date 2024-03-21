@@ -1,7 +1,10 @@
-import { Heading } from "@yamada-ui/react";
+import { Button, Heading } from "@yamada-ui/react";
+import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 
 const Index = () => {
+  const { data: session } = useSession();
+
   return (
     <>
       <Head>
@@ -11,8 +14,11 @@ const Index = () => {
       </Head>
       <main>
         <Heading as="h1" size="4xl">
-          Hello World!
+          Hello {session?.user?.name}!
         </Heading>
+        <Button variant="outline" colorScheme="gray" onClick={() => signOut()}>
+          サインアウト
+        </Button>
       </main>
     </>
   );
