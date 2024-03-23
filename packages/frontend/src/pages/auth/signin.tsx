@@ -7,7 +7,8 @@ import {
   Heading,
 } from "@yamada-ui/react";
 import { GetServerSideProps } from "next";
-import { getCsrfToken } from "next-auth/react";
+import { getCsrfToken, useSession } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 
 type SignInProps = {
@@ -17,6 +18,12 @@ type SignInProps = {
 const SignIn = ({ csrfToken }: SignInProps) => {
   const router = useRouter();
   const { error } = router.query;
+  const { data: session } = useSession();
+  const callbackUrl = useSearchParams().get("callbackUrl");
+
+  if (session?.user) {
+    router.push(callbackUrl || "/");
+  }
 
   return (
     <Box
@@ -36,10 +43,20 @@ const SignIn = ({ csrfToken }: SignInProps) => {
             ログイン
           </Heading>
           <FormControl label="メールアドレス" mb="md">
-            <Input name="email" type="email" variant="flushed" />
+            <Input
+              name="email"
+              type="email"
+              variant="flushed"
+              autoComplete="email"
+            />
           </FormControl>
           <FormControl label="パスワード" mb="md">
-            <Input name="password" type="password" variant="flushed" />
+            <Input
+              name="password"
+              type="password"
+              variant="flushed"
+              autoComplete="current-password"
+            />
           </FormControl>
           <Box display="flex" justifyContent="space-between">
             <Button type="submit" mb="md" colorScheme="primary" variant="solid">

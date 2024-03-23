@@ -45,7 +45,8 @@ export default NextAuth({
   callbacks: {
     jwt: async ({ token, user, account }) => {
       if (user) {
-        token.user = user;
+        const { _password, userWithOutPassword } = user;
+        token.user = userWithOutPassword;
         token.id = user.id;
       }
       if (account) {
