@@ -1,9 +1,9 @@
-import { Box, Button, Heading } from "@yamada-ui/react";
+import { Box, Button, Heading, Loading } from "@yamada-ui/react";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 
 const Index = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <>
@@ -13,21 +13,31 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <Heading as="h1" size="4xl">
-          Hello {session?.user?.name}!
-        </Heading>
-        <Box>
-          <Button
-            onClick={() => {
-              location.href = "http://localhost:3002/";
-            }}
-          >
-            家計簿アプリ
-          </Button>
-        </Box>
-        <Button variant="outline" colorScheme="gray" onClick={() => signOut()}>
-          サインアウト
-        </Button>
+        {status === "loading" ? (
+          <Loading size="9xl" />
+        ) : (
+          <Box>
+            <Heading as="h1" size="4xl">
+              Hello {session?.user?.name}!
+            </Heading>
+            <Box>
+              <Button
+                onClick={() => {
+                  location.href = "http://localhost:3002/";
+                }}
+              >
+                家計簿アプリ
+              </Button>
+            </Box>
+            <Button
+              variant="outline"
+              colorScheme="gray"
+              onClick={() => signOut()}
+            >
+              サインアウト
+            </Button>
+          </Box>
+        )}
       </main>
     </>
   );
