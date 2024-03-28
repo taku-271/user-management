@@ -31,10 +31,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      await createUser({
-        ...user,
-        isAdmin: false,
-      });
+      await createUser(user);
 
       await signIn("credentials", {
         email: user.email,

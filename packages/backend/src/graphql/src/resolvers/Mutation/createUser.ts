@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "./../../../types.generated";
 import * as bcrypt from "bcrypt";
-export const createUser: NonNullable<MutationResolvers['createUser']> = async (
+export const createUser: NonNullable<MutationResolvers["createUser"]> = async (
   _parent,
   _arg,
   _ctx
@@ -15,7 +15,7 @@ export const createUser: NonNullable<MutationResolvers['createUser']> = async (
         email: _arg.input.email,
         name: _arg.input.name,
         password: hashedPassword,
-        is_admin: _arg.input.isAdmin,
+        is_admin: _arg.input.isAdmin || false,
       },
     });
 
