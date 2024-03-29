@@ -10,7 +10,18 @@ type User {
   updatedAt: DateTime!
 }
 
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  isAdmin: Boolean
+}
+
 type Query {
   user(id: Int!): User
   getUserByEmail(email: String!): User
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): Boolean!
 }
