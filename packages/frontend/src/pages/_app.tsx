@@ -1,16 +1,8 @@
+import { client } from "@/libs/graphql-client";
+import { ApolloProvider } from "@apollo/client";
 import { Box, UIProvider } from "@yamada-ui/react";
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 export default function App({
   Component,
@@ -18,7 +10,7 @@ export default function App({
 }: AppProps) {
   return (
     <SessionProvider session={session}>
-      <QueryClientProvider client={queryClient}>
+      <ApolloProvider client={client}>
         <UIProvider>
           <Box
             height="100vh"
@@ -29,7 +21,7 @@ export default function App({
             <Component {...pageProps} />
           </Box>
         </UIProvider>
-      </QueryClientProvider>
+      </ApolloProvider>
     </SessionProvider>
   );
 }

@@ -24,6 +24,7 @@ export default NextAuth({
       async authorize(credentials) {
         const { email, password } = credentials;
 
+        /* Todo: apollo clientを使用したい */
         const user = (
           await getSdk(await getGraphqlClient()).getUserByEmail({
             email,
