@@ -31,7 +31,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      await createUser(user);
+      await createUser({ variables: { input: user } });
 
       await signIn("credentials", {
         email: user.email,
