@@ -1,7 +1,7 @@
 import { useCreateUserMutation } from "./mutation";
 
 export const useCreateUser = () => {
-  const { mutateAsync: createUser, error } = useCreateUserMutation();
+  const [createUser, { data, loading, error }] = useCreateUserMutation();
 
   if (error) {
     throw error;
