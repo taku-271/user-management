@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["codegen", "nextauth"]
+  "cSpell.words": [
+    "auths",
+    "codegen",
+    "fontawesome",
+    "fortawesome",
+    "nextauth",
+    "signin",
+    "signout",
+    "signup"
+  ]
 }

@@ -1,3 +1,4 @@
+import { Header } from "@/features/headers";
 import { client } from "@/libs/graphql-client";
 import { ApolloProvider } from "@apollo/client";
 import { Box, UIProvider } from "@yamada-ui/react";
@@ -12,13 +13,11 @@ export default function App({
     <SessionProvider session={session}>
       <ApolloProvider client={client}>
         <UIProvider>
-          <Box
-            height="100vh"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Component {...pageProps} />
+          <Box height="100vh">
+            <Header height="8%" />
+            <Box display="flex" justifyContent="center" height="92%">
+              <Component {...pageProps} />
+            </Box>
           </Box>
         </UIProvider>
       </ApolloProvider>
