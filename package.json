@@ -2,6 +2,9 @@
   "name": "user-management",
   "private": true,
   "scripts": {
-    "dev": "cd ./packages/frontend && bun run dev"
+    "dev": "bun run dev:frontend",
+    "dev:frontend": "cd ./packages/frontend && bun run dev",
+    "dev:copy": "cd ./packages/interface && bun run copy",
+    "dev:codegen": "cd ./packages/interface && bun run codegen"
   }
 }
