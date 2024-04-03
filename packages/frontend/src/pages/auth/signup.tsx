@@ -1,4 +1,4 @@
-import { useCreateUser } from "@/features/auths/store";
+import { useCreateUser } from "@/features/auths/signUp/store";
 import {
   Box,
   Text,

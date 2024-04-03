@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.9",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@types/bcrypt": "^5.0.2",
     "@types/md5": "^2.3.5",
+    "@yamada-ui/fontawesome": "^1.0.17",
     "@yamada-ui/react": "^1.2.9",
     "bcrypt": "^5.1.1",
     "graphql": "^16.8.1",

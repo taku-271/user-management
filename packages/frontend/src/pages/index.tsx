@@ -9,7 +9,7 @@ const Index = () => {
     <>
       <Head>
         <title>ユーザー認証</title>
-        <meta name="description" content="ユーザー認証認可" />
+        <meta name="description" content="ユーザー認証" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
@@ -29,13 +29,6 @@ const Index = () => {
                 家計簿アプリ
               </Button>
             </Box>
-            <Button
-              variant="outline"
-              colorScheme="gray"
-              onClick={() => signOut()}
-            >
-              サインアウト
-            </Button>
           </Box>
         )}
       </main>
