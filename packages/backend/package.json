@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@apollo/federation": "^0.38.1",
     "@prisma/client": "^5.11.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",

@@ -1,6 +1,6 @@
 scalar DateTime
 
-type User {
+type User @key(fields: "id") {
   id: Int!
   name: String!
   email: String!

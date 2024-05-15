@@ -8,6 +8,7 @@ const config: CodegenConfig = {
     "../backend/src/graphql": defineConfig({
       typesPluginsConfig: {
         contextType: "../context#GraphQLContext",
+        federation: true,
       },
     }),
     "../frontend/src/graphql/graphql.ts": {
