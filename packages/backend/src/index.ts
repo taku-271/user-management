@@ -1,11 +1,12 @@
-import { createSchema, createYoga } from "graphql-yoga";
+import { buildSubgraphSchema } from "@apollo/federation";
+import { createYoga } from "graphql-yoga";
 import createContext from "./context";
-import { typeDefs } from "./graphql/typeDefs.generated";
 import { resolvers } from "./graphql/resolvers.generated";
+import { typeDefs } from "./graphql/typeDefs.generated";
 
 const yoga = createYoga({
   landingPage: false,
-  schema: createSchema({
+  schema: buildSubgraphSchema({
     typeDefs,
     resolvers,
   }),
@@ -17,4 +18,4 @@ const server = Bun.serve({
   fetch: yoga,
 });
 
-console.log(`Server is running on http://localhost:${server.port} `);
+console.log(`Server is running on http://${server.hostname}:${server.port} `);

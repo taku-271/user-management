@@ -5,6 +5,7 @@ import {
   FormControl,
   Input,
   Heading,
+  Loading,
 } from "@yamada-ui/react";
 import { GetServerSideProps } from "next";
 import { getCsrfToken, useSession } from "next-auth/react";
@@ -18,14 +19,16 @@ type SignInProps = {
 const SignIn = ({ csrfToken }: SignInProps) => {
   const router = useRouter();
   const { error } = router.query;
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const callbackUrl = useSearchParams().get("callbackUrl");
 
   if (session?.user) {
     router.push(callbackUrl || "/");
   }
 
-  return (
+  return status === "loading" ? (
+    <Loading size="9xl" />
+  ) : (
     <Box
       h="50%"
       w="75%"
